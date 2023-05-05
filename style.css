@@ -1,0 +1,41 @@
+/* import Google font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    background-color: #33373d;
+}
+.chessboard {
+    width: 64vmin;
+    height: 64vmin;
+    margin: 20px;
+    border: 25px solid #333;
+    left: 25%;
+    position: absolute;
+}
+.black {
+    width: 8vmin;
+    height: 8vmin;
+    float: left;
+    background-color: #999;
+    font-size: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+.white {
+    width: 8vmin;
+    height: 8vmin;
+    float: left;
+    background-color: #fff;
+    font-size: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+.piece {
+    width: 8vmin;
+    height: 8vmin;
+    z-index: 100;
+}
