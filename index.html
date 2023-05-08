@@ -10,25 +10,35 @@
         <script src="script.js" defer></script>
     </head>
     <body>
+        <div class="logo">
+            Practice Chess Openings
+        </div>
+        <div class="topnav">
+            <a class="active" href="#Main">Main</a>
+            <a href="#Openings">Openings</a>
+            <a href="#Your_Openings">Your Openings</a>
+            <a href="#login" class="split">Login</a>
+            <a href="#signup" class="split">Sign Up</a>
+        </div>
         <div class="chessboard">
             <!-- first row -->
-            <div id="0" class="square white"><img class="piece" id="hi" src="pieces/black_rook.png" alt="Black Rook" draggable="true"></div>
-            <div id="1" class="square black"><img class="piece" src="pieces/black_knight.png" alt="Black Knight"></div>
-            <div id="2" class="square white"><img class="piece" src="pieces/black_bishop.png" alt="Black Bishop"></div>
-            <div id="3" class="square black"><img class="piece" src="pieces/black_queen.png" alt="Black Queen"></div>
-            <div id="4" class="square white"><img class="piece" src="pieces/black_king.png" alt="Black King"></div>
-            <div id="5" class="square black"><img class="piece" src="pieces/black_bishop.png" alt="Black Bishop"></div>
-            <div id="6" class="square white"><img class="piece" src="pieces/black_knight.png" alt="Black Knight"></div>
-            <div id="7" class="square black"><img class="piece" src="pieces/black_rook.png" alt="Black Rook"></div>
+            <div id="0" class="square white"><img class="piece b rook" id="hi" src="pieces/black_rook.png" alt="Black Rook" draggable="false"></div>
+            <div id="1" class="square black"><img class="piece b knight" src="pieces/black_knight.png" alt="Black Knight" draggable="false"></div>
+            <div id="2" class="square white"><img class="piece b bishop" src="pieces/black_bishop.png" alt="Black Bishop" draggable="false"></div>
+            <div id="3" class="square black"><img class="piece b queen" src="pieces/black_queen.png" alt="Black Queen" draggable="false"></div>
+            <div id="4" class="square white"><img class="piece b king" src="pieces/black_king.png" alt="Black King" draggable="false"></div>
+            <div id="5" class="square black"><img class="piece b bishop" src="pieces/black_bishop.png" alt="Black Bishop" draggable="false"></div>
+            <div id="6" class="square white"><img class="piece b knight" src="pieces/black_knight.png" alt="Black Knight" draggable="false"></div>
+            <div id="7" class="square black"><img class="piece b rook" src="pieces/black_rook.png" alt="Black Rook" draggable="false"></div>
             <!-- second row -->
-            <div id="8" class="square black"><img class="piece" src="pieces/black_pawn.png" alt="Black Pawn"></div>
-            <div id="9" class="square white"><img class="piece" src="pieces/black_pawn.png" alt="Black Pawn"></div>
-            <div id="10" class="square black"><img class="piece" src="pieces/black_pawn.png" alt="Black Pawn"></div>
-            <div id="11" class="square white"><img class="piece" src="pieces/black_pawn.png" alt="Black Pawn"></div>
-            <div id="12" class="square black"><img class="piece" src="pieces/black_pawn.png" alt="Black Pawn"></div>
-            <div id="13" class="square white"><img class="piece" src="pieces/black_pawn.png" alt="Black Pawn"></div>
-            <div id="14" class="square black"><img class="piece" src="pieces/black_pawn.png" alt="Black Pawn"></div>
-            <div id="15" class="square white"><img class="piece" src="pieces/black_pawn.png" alt="Black Pawn"></div>
+            <div id="8"  class="square black"><img class="piece b pawn" src="pieces/black_pawn.png" alt="Black Pawn" draggable="false"></div>
+            <div id="9"  class="square white"><img class="piece b pawn" src="pieces/black_pawn.png" alt="Black Pawn" draggable="false"></div>
+            <div id="10" class="square black"><img class="piece b pawn" src="pieces/black_pawn.png" alt="Black Pawn" draggable="false"></div>
+            <div id="11" class="square white"><img class="piece b pawn" src="pieces/black_pawn.png" alt="Black Pawn" draggable="false"></div>
+            <div id="12" class="square black"><img class="piece b pawn" src="pieces/black_pawn.png" alt="Black Pawn" draggable="false"></div>
+            <div id="13" class="square white"><img class="piece b pawn" src="pieces/black_pawn.png" alt="Black Pawn" draggable="false"></div>
+            <div id="14" class="square black"><img class="piece b pawn" src="pieces/black_pawn.png" alt="Black Pawn" draggable="false"></div>
+            <div id="15" class="square white"><img class="piece b pawn" src="pieces/black_pawn.png" alt="Black Pawn" draggable="false"></div>
             <!-- third row -->
             <div id="16" class="square white"></div>
             <div id="17" class="square black"></div>
@@ -66,23 +76,23 @@
             <div id="46" class="square black"></div>
             <div id="47" class="square white"></div>
             <!-- seventh row -->
-            <div id="48" class="square white"><img class="piece pawn" src="pieces/white_pawn.png" alt="White Pawn"></div>
-            <div id="49" class="square black"><img class="piece pawn" src="pieces/white_pawn.png" alt="White Pawn"></div>
-            <div id="50" class="square white"><img class="piece pawn" src="pieces/white_pawn.png" alt="White Pawn"></div>
-            <div id="51" class="square black"><img class="piece pawn" src="pieces/white_pawn.png" alt="White Pawn"></div>
-            <div id="52" class="square white"><img class="piece pawn" src="pieces/white_pawn.png" alt="White Pawn"></div>
-            <div id="53" class="square black"><img class="piece pawn" src="pieces/white_pawn.png" alt="White Pawn"></div>
-            <div id="54" class="square white"><img class="piece pawn" src="pieces/white_pawn.png" alt="White Pawn"></div>
-            <div id="55" class="square black"><img class="piece pawn" src="pieces/white_pawn.png" alt="White Pawn"></div>
+            <div id="48" class="square white"><img class="piece w pawn" src="pieces/white_pawn.png" alt="White Pawn" draggable="false"></div>
+            <div id="49" class="square black"><img class="piece w pawn" src="pieces/white_pawn.png" alt="White Pawn" draggable="false"></div>
+            <div id="50" class="square white"><img class="piece w pawn" src="pieces/white_pawn.png" alt="White Pawn" draggable="false"></div>
+            <div id="51" class="square black"><img class="piece w pawn" src="pieces/white_pawn.png" alt="White Pawn" draggable="false"></div>
+            <div id="52" class="square white"><img class="piece w pawn" src="pieces/white_pawn.png" alt="White Pawn" draggable="false"></div>
+            <div id="53" class="square black"><img class="piece w pawn" src="pieces/white_pawn.png" alt="White Pawn" draggable="false"></div>
+            <div id="54" class="square white"><img class="piece w pawn" src="pieces/white_pawn.png" alt="White Pawn" draggable="false"></div>
+            <div id="55" class="square black"><img class="piece w pawn" src="pieces/white_pawn.png" alt="White Pawn" draggable="false"></div>
             <!-- eigth row -->
-            <div id="56" class="square black"><img class="piece" src="pieces/white_rook.png" alt="White Rook"></div>
-            <div id="57" class="square white"><img class="piece" src="pieces/white_knight.png" alt="White Knight"></div>
-            <div id="58" class="square black"><img class="piece" src="pieces/white_bishop.png" alt="White Bishop"></div>
-            <div id="59" class="square white"><img class="piece" src="pieces/white_queen.png" alt="White Queen"></div>
-            <div id="60" class="square black"><img class="piece" src="pieces/white_king.png" alt="White King"></div>
-            <div id="61" class="square white"><img class="piece" src="pieces/white_bishop.png" alt="White Bishop"></div>
-            <div id="62" class="square black"><img class="piece" src="pieces/white_knight.png" alt="White Knight"></div>
-            <div id="63" class="square white"><img class="piece" src="pieces/white_rook.png" alt="White Rook"></div>
+            <div id="56" class="square black"><img class="piece w rook" src="pieces/white_rook.png" alt="White Rook" draggable="false"></div>
+            <div id="57" class="square white"><img class="piece w knight" src="pieces/white_knight.png" alt="White Knight" draggable="false"></div>
+            <div id="58" class="square black"><img class="piece w bishop" src="pieces/white_bishop.png" alt="White Bishop" draggable="false"></div>
+            <div id="59" class="square white"><img class="piece w queen" src="pieces/white_queen.png" alt="White Queen" draggable="false"></div>
+            <div id="60" class="square black"><img class="piece w king" src="pieces/white_king.png" alt="White King" draggable="false"></div>
+            <div id="61" class="square white"><img class="piece w bishop" src="pieces/white_bishop.png" alt="White Bishop" draggable="false"></div>
+            <div id="62" class="square black"><img class="piece w knight" src="pieces/white_knight.png" alt="White Knight" draggable="false"></div>
+            <div id="63" class="square white"><img class="piece w rook" src="pieces/white_rook.png" alt="White Rook" draggable="false"></div>
         </div>
     </body>
 </html>
