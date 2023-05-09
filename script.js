@@ -1,3 +1,4 @@
+let startBoard = [];
 let board = [];
 let empty = "  ";
 
@@ -6,18 +7,32 @@ const squares = document.querySelectorAll(".square");
 let isSelected = false;
 let currentPiece = null;
 let prevSquare = null;
+let whiteMove = true;
 
 squares.forEach(function (square) {
     square.addEventListener("click", function(e) {
-        if (isSelected === true) {
+        if (isSelected === true && allowed(square)) {
+
+
             prevSquare.removeChild(currentPiece);
+            while (square.firstChild) {
+                square.removeChild(square.firstChild);
+            }
             square.append(currentPiece);
             changeColor(square);
             updateBoard(square);
+
+            // change whos turn it is\
+            if (whiteMove) {
+                whiteMove = false;
+            } else {
+                whiteMove = true;
+            }
+
             isSelected = false;
             prevSquare = null;
         } else {
-            if (square.hasChildNodes()) {
+            if (square.hasChildNodes() && checkTurn(currentPiece)) {
                 resetColors();
                 isSelected = true;
                 prevSquare = square;
@@ -36,6 +51,32 @@ pieces.forEach(function (piece) {
     });
 });
 
+// checks if the piece is allowed to move to the square
+function allowed(square) {
+    const colorWhite = currentPiece.classList.contains('w');
+    if (!square.hasChildNodes()) {
+        return true;
+    } else if (colorWhite && square.firstChild.classList.contains('w')) {
+        return false;
+    } else if (!colorWhite && square.firstChild.classList.contains('b')) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// checks if the piece selected is allowed to move based on whos turn it is
+function checkTurn(piece) {
+    if (piece.classList.contains('w') && whiteMove) {
+        return true;
+    } else if (piece.classList.contains('b') && !whiteMove) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// changes the color of the square when it is selected
 function changeColor(square) {
     if (square.classList.contains("black")) {
         square.style.backgroundColor = "#5C8752";
@@ -44,6 +85,7 @@ function changeColor(square) {
     }
 }
 
+// resets all the colors on the board to the normal white and black
 function resetColors() {
     squares.forEach(function(square) {
         if (square.classList.contains("black")) {
@@ -54,6 +96,7 @@ function resetColors() {
     });
 }
 
+// updates the 2d array board based on piece movement
 function updateBoard(square) {
     const old = prevSquare.id;
     const oldRow = Math.floor(old / 8);
@@ -63,15 +106,12 @@ function updateBoard(square) {
     const sq = square.id;
     const sqRow = Math.floor(sq / 8);
     const sqCol = sq % 8;
-    console.log(board[sqRow][sqCol])
     board[sqRow][sqCol] = identifyPiece(currentPiece);
-    console.log(board[sqRow][sqCol])
-    console.log(sqRow);
-    console.log(sqCol);
     
     console.log(board);
 }
 
+// returns which piece is selected
 function identifyPiece(piece) {
     if (piece.classList.contains('b')) { // black pieces
         if (piece.classList.contains('pawn')) {
@@ -104,6 +144,7 @@ function identifyPiece(piece) {
     }
 }
 
+// creates the 2d array board with the starting position
 function beginBoard() {
     const row0 = [];
     row0.push("BR");
@@ -132,36 +173,58 @@ function beginBoard() {
     row7.push("WN");
     row7.push("WR");
 
-    const emptyRow = [];
+    const emptyRow1 = [];
     for (let i = 0; i < 8; ++i) {
-        emptyRow.push(empty);
+        emptyRow1.push(empty);
+    }
+    const emptyRow2 = [];
+    for (let i = 0; i < 8; ++i) {
+        emptyRow2.push(empty);
+    }
+    const emptyRow3 = [];
+    for (let i = 0; i < 8; ++i) {
+        emptyRow3.push(empty);
+    }
+    const emptyRow4 = [];
+    for (let i = 0; i < 8; ++i) {
+        emptyRow4.push(empty);
     }
 
     board.push(row0);
     board.push(row1);
-    for (let i = 0; i < 4; ++i) {
-        board.push(emptyRow);
-    }
+    board.push(emptyRow1);
+    board.push(emptyRow2);
+    board.push(emptyRow3);
+    board.push(emptyRow4);
     board.push(row6);
     board.push(row7);
 }
 
-function checkOccupied(e) {
-    const squareNum = e.target.id;
-    const row = Math.floor(squareNum / 8);
-    const col = squareNum % 8;
-    
-    if (board[row][col] === "e") {
-        return true;
-    } else {
-        return false;
+function setBoard() {
+    let square;
+    let id;
+    for (let r = 0; r < 8; ++r) {
+        for (let c = 0; c < 8; ++c) {
+            id = (r * 8 + c).toString();
+            square = document.getElementById(id);
+
+            if (board[r][c] === "  ") {
+                square.removeChild(square.firstChild);
+            }
+        }
     }
+}
+
+function reset() {
+    board = startBoard;
+    setBoard();
 }
 
 const beginGame = () => {
     beginBoard();
-    console.log(board);
+    startBoard = JSON.parse(JSON.stringify(board));
 }
+
 
 beginGame();
 

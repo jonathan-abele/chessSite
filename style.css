@@ -8,6 +8,9 @@
 body {
     background-color: #33373d;
 }
+
+
+
 /* Logo */
 .logo {
     color: #f2f2f2;
@@ -16,7 +19,7 @@ body {
     font-weight: 1000;
     user-select: none;
 }
-/* nav bar stuff */
+/* nav bar css */
 .topnav {
     background-color: #333;
     overflow: hidden;
@@ -49,12 +52,22 @@ body {
     color: white;
 }
 
+/* Main stuff css */
+.mainStuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vmin;
+}
+
+
+
+/* Chess board css */
 .chessboard {
     width: 64vmin;
     height: 64vmin;
-    margin: 0 auto;
-    margin-top: 4vmin;
-    border: 25px solid #333;
+    border: 2vmin solid #333;
+    margin-right: 30px;
 }
 .black {
     width: 8vmin;
@@ -62,7 +75,6 @@ body {
     float: left;
     background-color: #999;
     user-select: none;
-    font-size: 50px;
     text-align: center;
     vertical-align: middle;
 }
@@ -72,7 +84,6 @@ body {
     float: left;
     background-color: #fff;
     user-select: none;
-    font-size: 50px;
     text-align: center;
     vertical-align: middle;
 }
@@ -83,3 +94,30 @@ body {
     user-select: none;
     cursor: pointer;
 }
+
+.menu {
+    width: 64vmin;
+    height: 64vmin ;
+    border: 2vmin solid #333;
+    background-color: #333;
+}
+
+.menu .title {
+    color: #f2f2f2;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 200;
+    user-select: none;
+}
+
+.button {
+    border: none;
+    color: #333;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    user-select: none;
+  }
